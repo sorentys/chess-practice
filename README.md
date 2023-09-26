@@ -1,2 +1,2 @@
 # chess-practice
-end to end chess implementation
+end to end chess implementation.
