@@ -11,28 +11,67 @@ public class TestFactory {
     //Chess Functions
     //------------------------------------------------------------------------------------------------------------------
     public static ChessBoard getNewBoard(){
-        // FIXME
-		return null;
+        ChessBoardImplementation chess_board = new ChessBoardImplementation();
+		return chess_board;
     }
 
     public static ChessGame getNewGame(){
-        // FIXME
-		return null;
+        ChessGameImplementation chess_game = new ChessGameImplementation();
+		return chess_game;
     }
 
-    public static ChessPiece getNewPiece(ChessGame.TeamColor pieceColor, ChessPiece.PieceType type){
-        // FIXME
-		return null;
+    public static ChessPiece getNewPiece(ChessGame.TeamColor team_color, ChessPiece.PieceType type){
+        ChessPiece white_pawn;
+        if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.PAWN) {
+            white_pawn = new Pawn(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.BISHOP) {
+            white_pawn = new Bishop(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.KNIGHT) {
+            white_pawn = new Knight(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.ROOK) {
+            white_pawn = new Rook(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.QUEEN) {
+            white_pawn = new Queen(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.KING) {
+            white_pawn = new King(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.PAWN) {
+            white_pawn = new Pawn(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.BISHOP) {
+            white_pawn = new Bishop(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.KNIGHT) {
+            white_pawn = new Knight(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.ROOK) {
+            white_pawn = new Rook(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.QUEEN) {
+            white_pawn = new Queen(team_color);
+        }
+        else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.KING) {
+            white_pawn = new King(team_color);
+        }
+        else {
+            throw new IllegalArgumentException("Must specify a team color and a piece type.");
+        }
+        return white_pawn;
     }
 
-    public static ChessPosition getNewPosition(Integer row, Integer col){
-        // FIXME
-		return null;
+    public static ChessPosition getNewPosition(Integer row, Integer column){
+        ChessPositionImplementation position = new ChessPositionImplementation(row, column);
+		return position;
     }
 
-    public static ChessMove getNewMove(ChessPosition startPosition, ChessPosition endPosition, ChessPiece.PieceType promotionPiece){
-        // FIXME
-		return null;
+    public static ChessMove getNewMove(ChessPosition start_position, ChessPosition end_position, ChessPiece.PieceType promotion_piece){
+        ChessMoveImplementation move = new ChessMoveImplementation(start_position, end_position, promotion_piece);
+		return move;
     }
     //------------------------------------------------------------------------------------------------------------------
 
