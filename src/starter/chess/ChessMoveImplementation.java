@@ -56,6 +56,6 @@ public class ChessMoveImplementation implements ChessMove{
                 "start_position=" + start_position +
                 ", end_position=" + end_position +
                 ", promotion_piece=" + promotion_piece +
-                '}';
+                "}\n";
     }
 }

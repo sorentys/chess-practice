@@ -46,6 +46,9 @@ public class Pawn extends ChessPieceImplementation{
         //diagonal captures
         for (int column_offset : new int[] {-1, 1}) {
             ChessPosition diagonal = new ChessPositionImplementation(this_position.getRow() + forward, this_position.getColumn() + column_offset);
+            if (diagonal.getColumn() < 1 || diagonal.getColumn() > 8 || diagonal.getRow() < 1 || diagonal.getRow() > 8) {
+                continue;
+            }
             ChessPiece piece_at_diagonal = board.getPiece(diagonal);
             if (piece_at_diagonal != null && piece_at_diagonal.getTeamColor() != getTeamColor()) {
                 if ((getTeamColor() == ChessGame.TeamColor.WHITE && this_position.getRow() == 7) ||

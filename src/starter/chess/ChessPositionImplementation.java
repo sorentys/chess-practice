@@ -42,6 +42,6 @@ public class ChessPositionImplementation implements ChessPosition {
         return "ChessPositionImplementation{" +
                 "row=" + row +
                 ", column=" + column +
-                '}';
+                "}\n";
     }
 }
