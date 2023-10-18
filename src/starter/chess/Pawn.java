@@ -59,19 +59,6 @@ public class Pawn extends ChessPieceImplementation{
                 }
             }
         }
-
-//        //promotion pieces
-//        if (board.getPiece(new ChessPositionImplementation(next_row, this_position.getColumn())) == null) {
-//            if ((next_row == 8 && getTeamColor() == ChessGame.TeamColor.WHITE) ||
-//                    (next_row == 1 && getTeamColor() == ChessGame.TeamColor.BLACK)) {
-//                for (ChessPiece.PieceType promotion_type : promotion_types) {
-//                    moves.add(new ChessMoveImplementation(this_position, new ChessPositionImplementation(next_row, this_position.getColumn()), promotion_type));
-//                }
-//            } else {
-//                moves.add(new ChessMoveImplementation(this_position, new ChessPositionImplementation(next_row, this_position.getColumn()), null));
-//            }
-//        }
-
         return moves;
     }
 

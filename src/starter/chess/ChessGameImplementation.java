@@ -233,35 +233,35 @@ public class ChessGameImplementation implements ChessGame {
     }
 
     private ChessPiece getNewPiece(ChessGame.TeamColor team_color, ChessPiece.PieceType type) {
-        ChessPiece white_pawn;
+        ChessPiece pawn_piece;
         if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.PAWN) {
-            white_pawn = new Pawn(team_color);
+            pawn_piece = new Pawn(team_color);
         } else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.BISHOP) {
-            white_pawn = new Bishop(team_color);
+            pawn_piece = new Bishop(team_color);
         } else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.KNIGHT) {
-            white_pawn = new Knight(team_color);
+            pawn_piece = new Knight(team_color);
         } else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.ROOK) {
-            white_pawn = new Rook(team_color);
+            pawn_piece = new Rook(team_color);
         } else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.QUEEN) {
-            white_pawn = new Queen(team_color);
+            pawn_piece = new Queen(team_color);
         } else if (team_color == ChessGame.TeamColor.WHITE && type == ChessPiece.PieceType.KING) {
-            white_pawn = new King(team_color);
+            pawn_piece = new King(team_color);
         } else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.PAWN) {
-            white_pawn = new Pawn(team_color);
+            pawn_piece = new Pawn(team_color);
         } else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.BISHOP) {
-            white_pawn = new Bishop(team_color);
+            pawn_piece = new Bishop(team_color);
         } else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.KNIGHT) {
-            white_pawn = new Knight(team_color);
+            pawn_piece = new Knight(team_color);
         } else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.ROOK) {
-            white_pawn = new Rook(team_color);
+            pawn_piece = new Rook(team_color);
         } else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.QUEEN) {
-            white_pawn = new Queen(team_color);
+            pawn_piece = new Queen(team_color);
         } else if (team_color == ChessGame.TeamColor.BLACK && type == ChessPiece.PieceType.KING) {
-            white_pawn = new King(team_color);
+            pawn_piece = new King(team_color);
         } else {
             throw new IllegalArgumentException("Must specify a team color and a piece type.");
         }
-        return white_pawn;
+        return pawn_piece;
     }
 }
 
