@@ -1,7 +1,8 @@
 package requests;
 
-import models.AuthToken;
-
+/**
+ * Request to logout of server
+ */
 public class LogoutRequest {
     private String auth_token;
 

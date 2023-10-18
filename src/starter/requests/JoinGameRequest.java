@@ -2,6 +2,9 @@ package requests;
 
 import models.Game;
 
+/**
+ * Request to make a game
+ */
 public class JoinGameRequest {
 
     private Game.PlayerColor player_color;

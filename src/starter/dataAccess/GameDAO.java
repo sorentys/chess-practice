@@ -5,6 +5,9 @@ import models.Game;
 
 import java.util.ArrayList;
 
+/**
+ * DAO for chess game services
+ */
 public class GameDAO {
     /**
      * inserts a new game into the database

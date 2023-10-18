@@ -4,6 +4,9 @@ import models.Game;
 
 import java.util.ArrayList;
 
+/**
+ * Response to listing all games in a database
+ */
 public class ListGamesResponse {
     private ArrayList<Game> game_list;
     private int game_id;

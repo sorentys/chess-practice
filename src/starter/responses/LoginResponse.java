@@ -1,5 +1,8 @@
 package responses;
 
+/**
+ * Response to logging into a server
+ */
 public class LoginResponse {
     private String message;
     private String authToken;

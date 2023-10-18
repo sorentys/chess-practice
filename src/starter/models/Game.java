@@ -2,6 +2,9 @@ package models;
 
 import chess.ChessGame;
 
+/**
+ * Chess game instance for dealing with a chess game
+ */
 public class Game {
 
     private int game_id;

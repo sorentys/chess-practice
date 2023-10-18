@@ -1,5 +1,8 @@
 package responses;
 
+/**
+ * Response to clearing a database
+ */
 public class ClearAllResponse {
     private String message;
 
