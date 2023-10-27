@@ -8,7 +8,7 @@ import responses.LoginResponse;
  */
 public class LoginService {
     /**
-     * logs a user in the chess game server
+     * Logs a user in the chess game server
      * @param r a request for logging into the server
      * @return a response to the request, (failed or not failed)
      */

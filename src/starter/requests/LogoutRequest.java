@@ -1,9 +1,12 @@
 package requests;
 
 /**
- * Request to logout of server
+ * Request to log out of server
  */
 public class LogoutRequest {
+    /**
+     * authentication token
+     */
     private String auth_token;
 
     public LogoutRequest() {}

@@ -6,7 +6,7 @@ import responses.ListGamesResponse;
 public class ListGamesService {
 
     /**
-     *Lists all games in the database
+     * Lists all games in the database
      * @param r a request for listing the games
      * @return a response to the request, (failed or not failed)
      */

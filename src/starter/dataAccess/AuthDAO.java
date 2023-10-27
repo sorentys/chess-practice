@@ -27,4 +27,24 @@ public class AuthDAO {
      * @return a list of chess games
      */
     public ArrayList<AuthToken> findAllAuths() {return null;}
+
+    /**
+     * Updates a user in the database
+     * @param auth_token the authentication token to update
+     * @return a chess game string of the updated game
+     */
+    public String updateAuth(AuthToken auth_token) {return null;}
+
+    /**
+     * Removes a chess game from the database
+     * @param auth_token the authentication token to remove
+     *
+     */
+    public void removeAuth(AuthToken auth_token) {}
+
+    /**
+     * Clears all authentication tokens from the database
+     */
+    public void clearAllAuths() {}
+
 }

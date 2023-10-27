@@ -26,5 +26,24 @@ public class UserDAO {
      * Returns all users in a database
      * @return a list of users
      */
-    public ArrayList<User> findAllAuths() {return null;}
+    public ArrayList<User> findAllUsers() {return null;}
+
+    /**
+     * Updates a user in the database
+     * @param user_name the username of the chess player to update
+     * @return a chess game string of the updated game
+     */
+    public String updateUser(String user_name) {return null;}
+
+    /**
+     * Removes a chess game from the database
+     * @param user_name the username of the chess player to remove
+     *
+     */
+    public void removeUser(String user_name) {}
+
+    /**
+     * Clears all users from the database
+     */
+    public void clearAllUsers() {}
 }

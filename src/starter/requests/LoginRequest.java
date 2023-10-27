@@ -4,8 +4,16 @@ package requests;
  * Request to login into server
  */
 public class LoginRequest {
+    /**
+     * chess player username
+     */
     private String username;
+
+    /**
+     * chess player's password
+     */
     private String password;
+    
     public LoginRequest() {}
 
     public String getUsername() {

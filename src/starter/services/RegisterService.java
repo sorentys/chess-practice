@@ -8,7 +8,7 @@ import responses.RegisterResponse;
  */
 public class RegisterService {
     /**
-     * registers a user into the database
+     * Registers a user into the database
      * @param r a request for registering a new user
      * @return a response to the request, (failed or not failed)
      */

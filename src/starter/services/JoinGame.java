@@ -9,7 +9,7 @@ import responses.JoinGameResponse;
 public class JoinGame {
 
     /**
-     * method to join a chess game
+     * Method to join a chess game
      * @param r a request for clearing
      * @return a response to the request, (failed or not failed)
      */
