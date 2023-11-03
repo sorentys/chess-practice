@@ -19,5 +19,13 @@ public class RegisterResponse {
      */
     private String message;
 
-    public RegisterResponse() {}
+    public String getMessage() {
+        return message;
+    }
+
+    public RegisterResponse(String username, String authToken, String message) {
+        this.username = username;
+        this.authToken = authToken;
+        this.message = message;
+    }
 }

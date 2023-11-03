@@ -8,6 +8,11 @@ public class LogoutResponse {
      * response message to request
      */
     private String message;
+    public String getMessage() {
+        return message;
+    }
 
-    public LogoutResponse() {}
+    public LogoutResponse(String message) {
+        this.message = message;
+    }
 }

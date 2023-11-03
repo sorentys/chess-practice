@@ -5,6 +5,11 @@ package responses;
  */
 public class LoginResponse {
     /**
+     * chess player username
+     */
+    private String username;
+
+    /**
      * response message to request
      */
     private String message;
@@ -13,13 +18,6 @@ public class LoginResponse {
      * authentication token
      */
     private String authToken;
-
-    /**
-     * chess player username
-     */
-    private String username;
-
-    public LoginResponse() {}
 
     public String getMessage() {
         return message;
@@ -31,5 +29,11 @@ public class LoginResponse {
 
     public String getUsername() {
         return username;
+    }
+
+    public LoginResponse(String username, String authToken, String message) {
+        this.username = username;
+        this.authToken = authToken;
+        this.message = message;
     }
 }

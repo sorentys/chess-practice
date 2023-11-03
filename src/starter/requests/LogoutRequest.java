@@ -7,8 +7,14 @@ public class LogoutRequest {
     /**
      * authentication token
      */
-    private String auth_token;
+    private String authToken;
 
-    public LogoutRequest() {}
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public LogoutRequest(String authToken) {
+        this.authToken = authToken;
+    }
 
 }

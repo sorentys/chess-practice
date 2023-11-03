@@ -10,9 +10,11 @@ public class ClearAllResponse {
      */
     private String message;
 
-    public ClearAllResponse() {}
-
     public String getMessage() {
         return message;
+    }
+
+    public ClearAllResponse(String message) {
+        this.message = message;
     }
 }

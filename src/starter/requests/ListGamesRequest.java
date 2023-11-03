@@ -7,7 +7,13 @@ public class ListGamesRequest {
     /**
      * authentication token
      */
-    private String auth_token;
+    private String authToken;
 
-    public ListGamesRequest() {}
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public ListGamesRequest(String authToken) {
+        this.authToken = authToken;
+    }
 }

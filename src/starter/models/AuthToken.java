@@ -13,5 +13,20 @@ public class AuthToken {
      */
     private String username;
 
-    public AuthToken() {}
+    public String getUsername() {
+        return username;
+    }
+
+    public String getAuthToken() {
+        return authToken;
+    }
+
+    public void setAuthToken(String token_to_set) {
+        this.authToken = token_to_set;
+    }
+
+    public AuthToken(String authToken, String username) {
+        this.authToken = authToken;
+        this.username = username;
+    }
 }

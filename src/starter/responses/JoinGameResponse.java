@@ -9,5 +9,11 @@ public class JoinGameResponse {
      */
     private String message;
 
-    public JoinGameResponse() {}
+    public String getMessage() {
+        return message;
+    }
+
+    public JoinGameResponse(String message) {
+        this.message = message;
+    }
 }

@@ -13,8 +13,6 @@ public class LoginRequest {
      * chess player's password
      */
     private String password;
-    
-    public LoginRequest() {}
 
     public String getUsername() {
         return username;
@@ -22,5 +20,10 @@ public class LoginRequest {
 
     public String getPassword() {
         return password;
+    }
+
+    public LoginRequest(String username, String password) {
+        this.username = username;
+        this.password = password;
     }
 }

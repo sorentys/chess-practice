@@ -2,25 +2,47 @@ package dataAccess;
 
 import models.AuthToken;
 import models.Game;
+import models.User;
 
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * DAO responsible for handling authentication of the chess game
  */
 public class AuthDAO {
     /**
+     * data structure for storing authTokens. "authToken" : authToken
+     */
+    private static Map<String, AuthToken> auth_tokens = new HashMap<String, AuthToken>();
+    /**
      * inserts a new token into the database
      * @param auth_token token to insert to database
      */
-    public void insertAuth(AuthToken auth_token) {}
+    public void insertAuth(AuthToken auth_token) throws IllegalArgumentException {
+        if (auth_tokens.containsKey(auth_token.getUsername())) {
+            throw new IllegalArgumentException("Error: user already logged in");
+        }
+        else {
+            String new_auth_token = UUID.randomUUID().toString();
+            auth_token.setAuthToken(new_auth_token);
+            auth_tokens.put(auth_token.getAuthToken(), auth_token);
+        }
+    }
 
     /**
-     * finds a game in the database by gameID
-     * @param auth_token id of the chess game
-     * @return a authToken
+     * finds a token in the database by username
+     * @param auth_token_to_find token to find
      */
-    public AuthToken findAuth(AuthToken auth_token) {return null;}
+    public void findAuth(AuthToken auth_token_to_find) throws IllegalArgumentException {
+        if (!auth_tokens.containsKey(auth_token_to_find.getAuthToken())) {
+            throw new IllegalArgumentException("Error: unauthorized");
+        }
+        String data_auth_token_username = auth_tokens.get(auth_token_to_find.getAuthToken()).getUsername();
+        String auth_token_to_find_username = auth_token_to_find.getUsername();
+        if (data_auth_token_username.equals(auth_token_to_find_username)) { // TODO: add ! to make auth invalid auths not work
+            throw new IllegalArgumentException("Error: unauthorized");
+        }
+    }
 
     /**
      * Returns all the authTokens in the database
@@ -40,11 +62,32 @@ public class AuthDAO {
      * @param auth_token the authentication token to remove
      *
      */
-    public void removeAuth(AuthToken auth_token) {}
+    public void removeAuth(AuthToken auth_token) {
+        if (!auth_tokens.containsKey(auth_token.getAuthToken())) {
+            throw new IllegalArgumentException("Error: unauthorized");
+        }
+        else {
+            auth_tokens.remove(auth_token.getAuthToken());
+        }
+    }
 
     /**
      * Clears all authentication tokens from the database
      */
-    public void clearAllAuths() {}
+    public void clearAllAuths() {
+        auth_tokens.clear();
+    }
+
+    public String findUser(String auth_token_string) throws IllegalArgumentException {
+        if (auth_token_string == null) {
+            throw new IllegalArgumentException("Error unauthorized no username");
+        }
+        for (AuthToken auth_token : auth_tokens.values()) {
+            if (auth_token.getAuthToken().equals(auth_token_string)) {
+                return auth_token.getUsername();
+            }
+        }
+        return null;
+    }
 
 }
