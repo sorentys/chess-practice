@@ -38,13 +38,12 @@ public class GameDAO {
      */
     public Game findGame(int chess_game_id) throws IllegalArgumentException {
         for (Game game : games.values()) {
-            if (game.getGameID() == chess_game_id) {
+            int games_game_id = game.getGameID();
+            if (games_game_id == chess_game_id) {
                 return game;
-            } else {
-                throw new IllegalArgumentException("Error: bad request no game with given chess_game_id");
             }
         }
-        return null;
+        throw new IllegalArgumentException("Error: bad request no game with given chess_game_id");
     }
 
     /**
