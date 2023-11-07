@@ -9,7 +9,14 @@ import spark.Request;
 import spark.Response;
 import services.*;
 
+/**
+ * ClearAll handler
+ */
 public class ClearAllHandler extends ParentHandler {
+    /**
+     * handles a request to clear the entire database
+     * @param spark_response the spark response to set the status
+     */
     public String handle(Response spark_response) {
         Gson json_handler = new Gson();
 

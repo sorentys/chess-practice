@@ -15,6 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class UserServicesUnitTests {
     private UserServices user_service = new UserServices();
+
+
     @Test
     public void registerPositiveTest() {
         RegisterRequest good_request = new RegisterRequest("good_user_name", "test_password", "test@email.coom");

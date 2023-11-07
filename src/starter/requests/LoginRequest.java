@@ -22,6 +22,11 @@ public class LoginRequest {
         return password;
     }
 
+    /**
+     * LoginRequest constructor
+     * @param username username to login
+     * @param password user's password to authenticate login
+     */
     public LoginRequest(String username, String password) {
         this.username = username;
         this.password = password;

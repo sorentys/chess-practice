@@ -10,7 +10,15 @@ import services.UserServices;
 import spark.Request;
 import spark.Response;
 
+/**
+ * CreateGame handler
+ */
 public class CreateGameHandler extends ParentHandler {
+    /**
+     * handles a request to create a chess game
+     * @param spark_request holds required information to make a CreateGame Request
+     * @param spark_response spark response to set any CreateGame responses
+     */
     public String handle(Request spark_request, Response spark_response) {
         String body = spark_request.body();
         String header = spark_request.headers("authorization");

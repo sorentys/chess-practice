@@ -26,6 +26,11 @@ public class CreateGameRequest {
         this.authToken = auth_token_to_set;
     }
 
+    /**
+     * CreateGameRequest constructor
+     * @param authToken AuthToken string to authenticate game creation
+     * @param gameName what to name the chess game
+     */
     public CreateGameRequest(String authToken, String gameName) {
         this.authToken = authToken;
         this.gameName = gameName;

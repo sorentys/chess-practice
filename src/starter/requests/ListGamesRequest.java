@@ -13,6 +13,10 @@ public class ListGamesRequest {
         return authToken;
     }
 
+    /**
+     * ListGamesRequest Constructor
+     * @param authToken AuthToken string to set for the request
+     */
     public ListGamesRequest(String authToken) {
         this.authToken = authToken;
     }

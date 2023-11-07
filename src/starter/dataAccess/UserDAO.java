@@ -68,6 +68,9 @@ public class UserDAO {
         }
     }
 
+    /**
+     * lists all the users in the database
+     */
     public ArrayList<User> listAllUsers() {
         ArrayList<User> user_list = new ArrayList<User>();
         for (User one_user : users.values()) {;

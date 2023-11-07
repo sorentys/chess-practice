@@ -12,8 +12,8 @@ public class Database {
 
     // FIXME: Change these fields, if necessary, to match your database configuration
     public static final String DB_NAME = "chess";
-    private static final String DB_USERNAME = "root";
-    private static final String DB_PASSWORD = "admin";
+    private static final String DB_USERNAME = System.getenv("SQL_USERNAME");
+    private static final String DB_PASSWORD = System.getenv("SQL_PASSWORD");
 
     private static final String CONNECTION_URL = "jdbc:mysql://localhost:3306/" + DB_NAME;
 
@@ -21,7 +21,7 @@ public class Database {
      * Gets a connection to the database.
      *
      * @return Connection the connection.
-     * @throws DataAccessException if a data access error occurs.
+     * @throws DataAccessException if a data access error occurs.git
      */
     public Connection getConnection() throws DataAccessException {
         try {

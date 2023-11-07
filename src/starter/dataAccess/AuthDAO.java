@@ -39,6 +39,10 @@ public class AuthDAO {
         }
     }
 
+    /**
+     * removes an AuthToken from the database
+     * @param auth_token the AuthToken to remove
+     */
     public void removeAuth(AuthToken auth_token) {
         if (!auth_tokens.containsKey(auth_token.getAuthToken())) {
             throw new IllegalArgumentException("Error: unauthorized");
@@ -55,6 +59,10 @@ public class AuthDAO {
         auth_tokens.clear();
     }
 
+    /**
+     * finds the username of a user based on their AuthToken string
+     * @param auth_token_string the AuthToken string to use to find the user
+     */
     public String findUser(String auth_token_string) throws IllegalArgumentException {
         if (auth_token_string == null) {
             throw new IllegalArgumentException("Error unauthorized no username");
@@ -67,18 +75,9 @@ public class AuthDAO {
         return null;
     }
 
-    public String findUserAuth(String auth_token_string) throws IllegalArgumentException {
-        if (auth_token_string == null) {
-            throw new IllegalArgumentException("Error unauthorized no username");
-        }
-        for (AuthToken auth_token : auth_tokens.values()) {
-            if (auth_token.getAuthToken().equals(auth_token_string)) {
-                return auth_token.getUsername();
-            }
-        }
-        return null;
-    }
-
+    /**
+     * lists all AuthTokens in the database
+     */
     public ArrayList<AuthToken> listAllAuths() {
         ArrayList<AuthToken> auth_list = new ArrayList<AuthToken>();
         for (AuthToken one_auth : auth_tokens.values()) {;

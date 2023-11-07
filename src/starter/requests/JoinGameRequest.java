@@ -16,6 +16,9 @@ public class JoinGameRequest {
      */
     private Integer gameID;
 
+    /**
+     * authentication token
+     */
     private String authToken;
 
     public void setAuthToken(String authToken) {
@@ -34,6 +37,12 @@ public class JoinGameRequest {
         return gameID;
     }
 
+    /**
+     * JoinGameRequest constructor
+     * @param playerColor player color to set in game
+     * @param gameID game id of chess game to join
+     * @param authToken AuthToken string to authenticate joining a game
+     */
     public JoinGameRequest(String playerColor, Integer gameID, String authToken) {
         this.playerColor = playerColor;
         this.gameID = gameID;

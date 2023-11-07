@@ -13,6 +13,10 @@ public class LogoutRequest {
         return authToken;
     }
 
+    /**
+     * LogoutRequest constructor
+     * @param authToken AuthToken string to authenticate logging out
+     */
     public LogoutRequest(String authToken) {
         this.authToken = authToken;
     }
