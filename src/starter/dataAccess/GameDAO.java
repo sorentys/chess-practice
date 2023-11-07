@@ -81,18 +81,18 @@ public class GameDAO {
     }
 
     /**
-     * Updates a chess game in the database
-     * @param chess_game_id the id of the chess game
-     * @return a chess game string of the updated game
-     */
-    public String updateGame(int chess_game_id) {return null;}
-
-    /**
      * Removes a chess game from the database
-     * @param chess_game_id the id of the chess game
+     * @param chess_game the chess game
      *
      */
-    public void removeGame(int chess_game_id) {}
+    public void removeGame(Game chess_game) {
+        if (!games.containsKey(chess_game.getGameName())) {
+            throw new IllegalArgumentException("Error: unauthorized");
+        }
+        else {
+            games.remove(chess_game.getGameName());
+        }
+    }
 
     /**
      * Clears all games from the database

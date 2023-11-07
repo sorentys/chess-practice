@@ -1,6 +1,7 @@
 package dataAccess;
 
 import models.AuthToken;
+import models.Game;
 import models.User;
 
 import java.util.ArrayList;
@@ -58,7 +59,22 @@ public class UserDAO {
      * @param user_name the username of the chess player to remove
      *
      */
-    public void removeUser(String user_name) {}
+    public void removeUser(String user_name) {
+        if (!users.containsKey(user_name)) {
+            throw new IllegalArgumentException("Error: unauthorized");
+        }
+        else {
+            users.remove(user_name);
+        }
+    }
+
+    public ArrayList<User> listAllUsers() {
+        ArrayList<User> user_list = new ArrayList<User>();
+        for (User one_user : users.values()) {;
+            user_list.add(one_user);
+        }
+        return user_list;
+    }
 
     /**
      * Clears all users from the database

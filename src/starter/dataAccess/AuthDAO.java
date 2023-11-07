@@ -19,14 +19,9 @@ public class AuthDAO {
      * @param auth_token token to insert to database
      */
     public void insertAuth(AuthToken auth_token) throws IllegalArgumentException {
-        if (auth_tokens.containsKey(auth_token.getUsername())) {
-            throw new IllegalArgumentException("Error: user already logged in");
-        }
-        else {
-            String new_auth_token = UUID.randomUUID().toString();
-            auth_token.setAuthToken(new_auth_token);
-            auth_tokens.put(auth_token.getAuthToken(), auth_token);
-        }
+        String new_auth_token = UUID.randomUUID().toString();
+        auth_token.setAuthToken(new_auth_token);
+        auth_tokens.put(auth_token.getAuthToken(), auth_token);
     }
 
     /**
@@ -44,24 +39,6 @@ public class AuthDAO {
         }
     }
 
-    /**
-     * Returns all the authTokens in the database
-     * @return a list of chess games
-     */
-    public ArrayList<AuthToken> findAllAuths() {return null;}
-
-    /**
-     * Updates a user in the database
-     * @param auth_token the authentication token to update
-     * @return a chess game string of the updated game
-     */
-    public String updateAuth(AuthToken auth_token) {return null;}
-
-    /**
-     * Removes a chess game from the database
-     * @param auth_token the authentication token to remove
-     *
-     */
     public void removeAuth(AuthToken auth_token) {
         if (!auth_tokens.containsKey(auth_token.getAuthToken())) {
             throw new IllegalArgumentException("Error: unauthorized");
@@ -90,4 +67,23 @@ public class AuthDAO {
         return null;
     }
 
+    public String findUserAuth(String auth_token_string) throws IllegalArgumentException {
+        if (auth_token_string == null) {
+            throw new IllegalArgumentException("Error unauthorized no username");
+        }
+        for (AuthToken auth_token : auth_tokens.values()) {
+            if (auth_token.getAuthToken().equals(auth_token_string)) {
+                return auth_token.getUsername();
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<AuthToken> listAllAuths() {
+        ArrayList<AuthToken> auth_list = new ArrayList<AuthToken>();
+        for (AuthToken one_auth : auth_tokens.values()) {;
+            auth_list.add(one_auth);
+        }
+        return auth_list;
+    }
 }
