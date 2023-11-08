@@ -12,6 +12,10 @@ public class LogoutResponse {
         return message;
     }
 
+    /**
+     * LogoutResponse constructor
+     * @param message the response message
+     */
     public LogoutResponse(String message) {
         this.message = message;
     }

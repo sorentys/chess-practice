@@ -9,7 +9,15 @@ import services.GameServices;
 import spark.Request;
 import spark.Response;
 
+/**
+ * JoinGame handler
+ */
 public class JoinGameHandler extends ParentHandler{
+    /**
+     * handles a request to join a chess game
+     * @param spark_request holds required information to make a JoinGame Request
+     * @param spark_response spark response to set any JoinGame responses
+     */
     public String handle(Request spark_request, Response spark_response) {
         String body = spark_request.body();
         String header = spark_request.headers("authorization");

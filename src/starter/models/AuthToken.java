@@ -25,6 +25,11 @@ public class AuthToken {
         this.authToken = token_to_set;
     }
 
+    /**
+     * AuthToken model constructor
+     * @param authToken AuthToken string to authenticate joining a game
+     * @param username username of user to connect AuthToken to
+     */
     public AuthToken(String authToken, String username) {
         this.authToken = authToken;
         this.username = username;

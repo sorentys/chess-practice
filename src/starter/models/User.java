@@ -28,6 +28,12 @@ public class User {
         return password;
     }
 
+    /**
+     * AuthToken constructor
+     * @param username username of user to connect AuthToken to
+     * @param password the user's password to authenticate
+     * @param email the user's email
+     */
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;

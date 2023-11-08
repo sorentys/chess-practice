@@ -10,7 +10,15 @@ import spark.Response;
 import responses.*;
 import java.util.*;
 
+/**
+ * handles a request to logout a user
+ */
 public class LogoutHandler extends ParentHandler {
+    /**
+     * handles a request to logout a user
+     * @param spark_request holds required information to make a Logout Request
+     * @param spark_response spark response to set any Logout responses
+     */
     public String handle(Request spark_request, Response spark_response) {
         String header = spark_request.headers("authorization");
         Gson json_handler = new Gson();

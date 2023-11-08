@@ -1,6 +1,13 @@
 package handlers;
 
+/**
+ * handles setting the status code for spark responses
+ */
 public class ParentHandler {
+    /**
+     * decides the response value for the spark response
+     * @param message the message that contains the status information
+     */
     public int getResponseValue(String message) {
         int response_value = 0;
         if (message == null) {

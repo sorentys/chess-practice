@@ -22,6 +22,11 @@ public class CreateGameResponse {
         return message;
     }
 
+    /**
+     * CreateGameResponse constructor
+     * @param gameID the identification number of a chess game
+     * @param message the response message
+     */
     public CreateGameResponse(Integer gameID, String message) {
         this.gameID = gameID;
         this.message = message;

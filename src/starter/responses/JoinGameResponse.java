@@ -13,6 +13,10 @@ public class JoinGameResponse {
         return message;
     }
 
+    /**
+     * JoinGameResponse constructor
+     * @param message the response message
+     */
     public JoinGameResponse(String message) {
         this.message = message;
     }

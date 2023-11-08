@@ -9,11 +9,14 @@ import spark.Request;
 import spark.Response;
 
 /**
- * parses body from REQ and parse json into a RegisterRequest
- * call RegisterService.register() (which works with DAO to make a user in the map) and saves result
- * returns serialized tojson version of result
+ * handles a request to register a user
  */
 public class RegisterHandler extends ParentHandler{
+    /**
+     * handles a request to register a user
+     * @param spark_request holds required information to make a Register Request
+     * @param spark_response spark response to set any Register responses
+     */
     public String handle(Request spark_request, Response spark_response) {
         String body = spark_request.body();
         Gson json_handler = new Gson();

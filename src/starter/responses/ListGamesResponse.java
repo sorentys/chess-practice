@@ -27,6 +27,11 @@ public class ListGamesResponse {
         return games;
     }
 
+    /**
+     * ListGamesResponse constructor
+     * @param games a list of all games in the database
+     * @param message the response message
+     */
     public ListGamesResponse(ArrayList<Game> games, String message) {
         this.games = games;
         this.message = message;

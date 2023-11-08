@@ -9,7 +9,15 @@ import services.UserServices;
 import spark.Request;
 import spark.Response;
 
+/**
+ * handles a request to login a user
+ */
 public class LoginHandler extends ParentHandler {
+    /**
+     * handles a request to login to a user
+     * @param spark_request holds required information to make a Login Request
+     * @param spark_response spark response to set any Login responses
+     */
     public String handle(Request spark_request, Response spark_response) {
         String body = spark_request.body();
         Gson json_handler = new Gson();

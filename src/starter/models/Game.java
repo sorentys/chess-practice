@@ -31,6 +31,9 @@ public class Game {
      */
     private ChessGame game;
 
+    /**
+     * the color of the chess player
+     */
     private String playerColor;
 
     public void setWhiteUsername(String whiteUsername) {
@@ -65,6 +68,10 @@ public class Game {
         return whiteUsername;
     }
 
+    /**
+     * AuthToken constructor
+     * @param gameName the name of the chess game
+     */
     public Game(String gameName) {
         this.gameName = gameName;
     }
