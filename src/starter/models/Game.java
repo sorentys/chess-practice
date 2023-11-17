@@ -67,6 +67,9 @@ public class Game {
     public String getWhiteUsername() {
         return whiteUsername;
     }
+    public ChessGame getGame() {
+        return game;
+    }
 
     /**
      * AuthToken constructor

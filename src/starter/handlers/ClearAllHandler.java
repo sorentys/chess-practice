@@ -17,7 +17,7 @@ public class ClearAllHandler extends ParentHandler {
      * handles a request to clear the entire database
      * @param spark_response the spark response to set the status
      */
-    public String handle(Response spark_response) {
+    public String handle(Response spark_response) throws Exception {
         Gson json_handler = new Gson();
 
         GameServices game_service = new GameServices();

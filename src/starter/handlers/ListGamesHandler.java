@@ -16,7 +16,7 @@ public class ListGamesHandler extends ParentHandler {
      * @param spark_request holds required information to make a ListGame Request
      * @param spark_response spark response to set any ListGame responses
      */
-    public String handle(Request spark_request, Response spark_response) {
+    public String handle(Request spark_request, Response spark_response) throws Exception {
         String header = spark_request.headers("authorization");
         Gson json_handler = new Gson();
         ListGamesRequest header_request = new ListGamesRequest(header);

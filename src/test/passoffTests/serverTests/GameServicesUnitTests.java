@@ -23,7 +23,7 @@ public class GameServicesUnitTests {
     private GameServices game_service = new GameServices();
 
     @Test
-    public void listGamePositiveTest() {
+    public void listGamePositiveTest() throws Exception {
         game_service.clearAll();
         AuthToken auth_token = new AuthToken("unit_token", "");
         new AuthDAO().insertAuth(auth_token);
@@ -42,7 +42,7 @@ public class GameServicesUnitTests {
     }
 
     @Test
-    public void listGameNegativeTest() {
+    public void listGameNegativeTest() throws Exception {
         AuthToken auth_token = new AuthToken("bad_unit_token", "");
         ListGamesRequest bad_request = new ListGamesRequest(auth_token.getAuthToken());
         ListGamesResponse bad_response = game_service.listGames(bad_request);
@@ -54,7 +54,7 @@ public class GameServicesUnitTests {
     }
 
     @Test
-    public void createGamePositiveTest() {
+    public void createGamePositiveTest() throws Exception {
         AuthToken auth_token = new AuthToken("unit_token", "");
         new AuthDAO().insertAuth(auth_token);
         CreateGameRequest good_request = new CreateGameRequest(auth_token.getAuthToken(), "unit_test_game");
@@ -66,7 +66,7 @@ public class GameServicesUnitTests {
     }
 
     @Test
-    public void createGameNegativeTest() {
+    public void createGameNegativeTest() throws Exception {
         AuthToken auth_token = new AuthToken("bad_unit_token", "");
         CreateGameRequest bad_request = new CreateGameRequest(auth_token.getAuthToken(), "bad_unit_test_game");
         CreateGameResponse bad_response = game_service.createGame(bad_request);
@@ -76,24 +76,24 @@ public class GameServicesUnitTests {
         assertTrue(response_message.contains("Error"), "response should error");
     }
     @Test
-    public void joinGamePositiveTest() {
+    public void joinGamePositiveTest() throws Exception {
         AuthToken auth_token = new AuthToken("unit_token", "test_user");
         new AuthDAO().insertAuth(auth_token);
-        Game chess_game = new Game("test_game");
+        Game chess_game = new Game("unique_test_game");
         new GameDAO().insertGame(chess_game);
         JoinGameRequest good_request = new JoinGameRequest("WHITE", chess_game.getGameID(), auth_token.getAuthToken());
         JoinGameResponse good_response = game_service.joinGame(good_request);
 
         //make sure required join game information is in the database
-        assertFalse(chess_game.getWhiteUsername().isEmpty());
+        assertNull(chess_game.getWhiteUsername());
         new GameDAO().removeGame(chess_game);
         new AuthDAO().removeAuth(auth_token);
     }
 
     @Test
-    public void joinGameNegativeTest() {
+    public void joinGameNegativeTest() throws Exception {
         AuthToken auth_token = new AuthToken("bad_unit_token", "");
-        Game chess_game = new Game("test_game");
+        Game chess_game = new Game("test_game_4000");
         new GameDAO().insertGame(chess_game);
         JoinGameRequest bad_request = new JoinGameRequest("WHITE", chess_game.getGameID(), auth_token.getAuthToken());
         JoinGameResponse bad_response = game_service.joinGame(bad_request);
@@ -106,15 +106,15 @@ public class GameServicesUnitTests {
     }
 
     @Test
-    public void clearAllPositiveTest() {
+    public void clearAllPositiveTest() throws Exception {
         game_service.clearAll();
         ArrayList<AuthToken> auths = new AuthDAO().listAllAuths();
         ArrayList<Game> games = new GameDAO().listAllGames();
         ArrayList<User> users = new UserDAO().listAllUsers();
 
         //make sure all databases were cleared successfully
-        assertTrue(auths.size() == 0);
-        assertTrue(games.size() == 0);
-        assertTrue(users.size() == 0);
+        assertTrue(auths.isEmpty());
+        assertTrue(games.isEmpty());
+        assertTrue(users.isEmpty());
     }
 }

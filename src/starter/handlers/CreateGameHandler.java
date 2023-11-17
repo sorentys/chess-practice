@@ -19,7 +19,7 @@ public class CreateGameHandler extends ParentHandler {
      * @param spark_request holds required information to make a CreateGame Request
      * @param spark_response spark response to set any CreateGame responses
      */
-    public String handle(Request spark_request, Response spark_response) {
+    public String handle(Request spark_request, Response spark_response) throws Exception {
         String body = spark_request.body();
         String header = spark_request.headers("authorization");
         Gson json_handler = new Gson();

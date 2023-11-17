@@ -23,7 +23,7 @@ public class GameServices {
      * @param r a request for creating the game
      * @return a response to the request, (failed or not failed)
      */
-    public CreateGameResponse createGame(CreateGameRequest r) {
+    public CreateGameResponse createGame(CreateGameRequest r) throws Exception {
         if (r.getGameName() == null) {
             return new CreateGameResponse(null,"Error: bad request");
         }
@@ -35,7 +35,7 @@ public class GameServices {
         try {
             new AuthDAO().findAuth(token);
             new GameDAO().insertGame(game);
-        } catch (IllegalArgumentException err) {
+        } catch (Exception err) {
             return new CreateGameResponse(null, err.getMessage());
         }
         return new CreateGameResponse(game.getGameID(), null);
@@ -46,7 +46,7 @@ public class GameServices {
      * @param r a request for clearing
      * @return a response to the request, (failed or not failed)
      */
-    public JoinGameResponse joinGame(JoinGameRequest r) {
+    public JoinGameResponse joinGame(JoinGameRequest r) throws Exception {
         if (r.getGameID() == null) {
             return new JoinGameResponse("Error: bad request");
         }
@@ -57,7 +57,7 @@ public class GameServices {
         try {
             new GameDAO().findGame(r.getGameID());
             new AuthDAO().findAuth(token);
-        } catch (IllegalArgumentException err) {
+        } catch (Exception err) {
             return new JoinGameResponse(err.getMessage());
         }
         if (r.getPlayerColor() == null) {
@@ -68,7 +68,7 @@ public class GameServices {
             GameDAO join_game_dao = new GameDAO();
             Game game_to_join = join_game_dao.findGame(r.getGameID());
             join_game_dao.claimSpotInGame(r.getPlayerColor(), user_to_join, game_to_join);
-        } catch (IllegalArgumentException err) {
+        } catch (Exception err) {
             return new JoinGameResponse(err.getMessage());
         }
         return new JoinGameResponse(null);
@@ -79,7 +79,7 @@ public class GameServices {
      * @param r a request for listing the games
      * @return a response to the request, (failed or not failed)
      */
-    public ListGamesResponse listGames(ListGamesRequest r) {
+    public ListGamesResponse listGames(ListGamesRequest r) throws Exception {
         if (r.getAuthToken() == null) {
             return new ListGamesResponse(null, "Error: bad request");
         }
@@ -88,7 +88,7 @@ public class GameServices {
         try {
             new AuthDAO().findAuth(token);
             games_list = (new GameDAO().listAllGames());
-        } catch (IllegalArgumentException err) {
+        } catch (Exception err) {
             return new ListGamesResponse(null, err.getMessage());
         }
         return new ListGamesResponse(games_list, null);
@@ -98,7 +98,7 @@ public class GameServices {
      * clears the entire database
      * @return a response to the request, (failed or not failed)
      */
-    public ClearAllResponse clearAll() {
+    public ClearAllResponse clearAll() throws Exception{
         new UserDAO().clearAllUsers();
         new AuthDAO().clearAllAuths();
         new GameDAO().clearAllGames();

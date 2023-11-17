@@ -17,7 +17,7 @@ public class RegisterHandler extends ParentHandler{
      * @param spark_request holds required information to make a Register Request
      * @param spark_response spark response to set any Register responses
      */
-    public String handle(Request spark_request, Response spark_response) {
+    public String handle(Request spark_request, Response spark_response) throws Exception {
         String body = spark_request.body();
         Gson json_handler = new Gson();
         RegisterRequest body_request = json_handler.fromJson(body, RegisterRequest.class);

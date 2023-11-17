@@ -18,7 +18,7 @@ public class LoginHandler extends ParentHandler {
      * @param spark_request holds required information to make a Login Request
      * @param spark_response spark response to set any Login responses
      */
-    public String handle(Request spark_request, Response spark_response) {
+    public String handle(Request spark_request, Response spark_response) throws Exception {
         String body = spark_request.body();
         Gson json_handler = new Gson();
         LoginRequest body_request = json_handler.fromJson(body, LoginRequest.class);

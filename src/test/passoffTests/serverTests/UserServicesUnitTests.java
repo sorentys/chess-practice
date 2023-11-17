@@ -21,7 +21,7 @@ public class UserServicesUnitTests {
 
 
     @Test
-    public void registerPositiveTest() {
+    public void registerPositiveTest() throws Exception {
         RegisterRequest good_request = new RegisterRequest("good_user_name", "test_password", "test@email.coom");
         RegisterResponse good_response = user_service.register(good_request);
 
@@ -32,7 +32,7 @@ public class UserServicesUnitTests {
     }
 
     @Test
-    public void registerNegativeTest() {
+    public void registerNegativeTest() throws Exception {
         RegisterRequest bad_request = new RegisterRequest("good_user_name", "test_password", null);
         RegisterResponse bad_response = user_service.register(bad_request);
 
@@ -42,7 +42,7 @@ public class UserServicesUnitTests {
     }
 
     @Test
-    public void loginPositiveTest() {
+    public void loginPositiveTest() throws Exception {
         User good_user = new User("good_user_name", "good_password", "good@email.com");
         new UserDAO().insertUser(good_user);
         LoginRequest good_request = new LoginRequest("good_user_name", "good_password");
@@ -55,7 +55,7 @@ public class UserServicesUnitTests {
     }
 
     @Test
-    public void loginNegativeTest() {
+    public void loginNegativeTest() throws Exception {
         User good_user = new User("good_user_name", "good_password", "good@email.com");
         new UserDAO().insertUser(good_user);
         LoginRequest good_request = new LoginRequest("good_user_name", "bad_password");
@@ -68,7 +68,7 @@ public class UserServicesUnitTests {
     }
 
     @Test
-    public void logoutPositiveTest() {
+    public void logoutPositiveTest() throws Exception {
         RegisterRequest good_register_request = new RegisterRequest("good_user_name", "test_password", "test@email.coom");
         RegisterResponse good_register_response = user_service.register(good_register_request);
 
@@ -81,7 +81,7 @@ public class UserServicesUnitTests {
     }
 
     @Test
-    public void logoutNegativeTest() {
+    public void logoutNegativeTest() throws Exception {
         LogoutRequest bad_logout_request = new LogoutRequest("bad_auth_token");
         LogoutResponse bad_logout_response = user_service.logout(bad_logout_request);
 

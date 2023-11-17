@@ -16,7 +16,7 @@ public class UserServices {
      * @param r a request for registering a new user
      * @return a response to the request, (failed or not failed)
      */
-    public RegisterResponse register(RegisterRequest r) {
+    public RegisterResponse register(RegisterRequest r) throws Exception {
         if (r.getUsername() == null | r.getPassword() == null | r.getEmail() == null) {
             return new RegisterResponse(null, null, "Error: bad request");
         }
@@ -36,7 +36,7 @@ public class UserServices {
      * @param r a request for logging into the server
      * @return a response to the request, (failed or not failed)
      */
-    public LoginResponse login(LoginRequest r) {
+    public LoginResponse login(LoginRequest r) throws Exception {
         if (r.getUsername().isEmpty() | r.getPassword().isEmpty()) {
             return new LoginResponse(null, null, "Error: bad request");
         }
@@ -56,7 +56,7 @@ public class UserServices {
      * @param r a request for logging out
      * @return a response to the request, (failed or not failed)
      */
-    public LogoutResponse logout(LogoutRequest r) {
+    public LogoutResponse logout(LogoutRequest r) throws Exception {
         if (r.getAuthToken() == null | r.getAuthToken().isEmpty() | r.getAuthToken().equals("none")) {
             return new LogoutResponse("Error: bad request");
         }

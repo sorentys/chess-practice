@@ -5,7 +5,7 @@ import java.util.Collection;
 
 public class ChessGameImplementation implements ChessGame {
     private TeamColor current_turn;
-    private ChessBoard board;
+    private ChessBoardImplementation board;
     public ChessGameImplementation() {
         board = new ChessBoardImplementation();
         current_turn = TeamColor.WHITE;
@@ -157,7 +157,7 @@ public class ChessGameImplementation implements ChessGame {
             throw new IllegalArgumentException("Provided board cannot be null.");
         }
 
-        this.board = board;
+        this.board = (ChessBoardImplementation) board;
     }
 
     @Override

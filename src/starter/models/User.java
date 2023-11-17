@@ -28,6 +28,10 @@ public class User {
         return password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     /**
      * AuthToken constructor
      * @param username username of user to connect AuthToken to
