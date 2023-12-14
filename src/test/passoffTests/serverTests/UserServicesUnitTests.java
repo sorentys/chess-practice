@@ -1,6 +1,6 @@
 package passoffTests.serverTests;
 
-import models.AuthToken;
+import dataAccess.UserDAO;
 import models.User;
 import org.junit.jupiter.api.Test;
 import requests.LoginRequest;
@@ -10,7 +10,7 @@ import responses.LoginResponse;
 import responses.LogoutResponse;
 import responses.RegisterResponse;
 import services.*;
-import dataAccess.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

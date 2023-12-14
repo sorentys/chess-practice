@@ -1,4 +1,7 @@
 package passoffTests.serverTests;
+import dataAccess.AuthDAO;
+import dataAccess.GameDAO;
+import dataAccess.UserDAO;
 import models.AuthToken;
 import models.Game;
 import models.User;
@@ -10,7 +13,6 @@ import responses.CreateGameResponse;
 import responses.JoinGameResponse;
 import responses.ListGamesResponse;
 import services.*;
-import dataAccess.*;
 
 import java.util.ArrayList;
 

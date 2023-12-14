@@ -1,8 +1,6 @@
 package passoffTests.serverTests;
 
-import chess.ChessGame;
 import chess.ChessGameImplementation;
-import dataAccess.AuthDAO;
 import dataAccess.Database;
 import models.AuthToken;
 import models.Game;
@@ -16,8 +14,6 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.*;
 public class DatabaseUnitTests {
     private static Database database = new Database();
-
-
 
     @Test
     public void insertAuthPositiveTest() throws Exception {
